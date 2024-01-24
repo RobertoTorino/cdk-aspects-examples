@@ -47,9 +47,9 @@ export const env = {
 ======================================================================
 ```
 
-### Added more examples of using AWS CDK Aspects in the Bucket stack  
-> **Check the stack: `enable-bucket-versioning.ts`.**
-> **Enforce the Lambda NodeJS Runtime to the latest LTS version.**                              
+### Added more examples of using AWS CDK Aspects in the Bucket stack                
+> **Check the stack: `enable-bucket-versioning.ts`.**                       
+> **Enforce the Lambda NodeJS Runtime to the latest LTS version.**                                     
 > **Added check for `publicAccessBlockConfiguration`.**                                
 > **Added another method of checking for missing tags.**                     
 > **Added check for `deletionPolicy` and use `addOverride` to change the value in the cloudformation template.**                    
