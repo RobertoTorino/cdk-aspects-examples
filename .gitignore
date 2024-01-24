@@ -1,10 +1,25 @@
+# Node
 *.js
 !jest.config.js
 *.d.ts
 node_modules
+!.eslintrc.js
+
+# CDK Typescript default
+!*.d.ts
+!main.js
+!search.js
 
 # CDK asset staging directory
 .cdk.staging
 cdk.out
 
+# MacOS
 .DS_Store
+/.DS_Store
+/../../.DS_Store
+/../../.idea/.DS_Store
+/../.DS_Store
+
+diagram.dot
+.idea

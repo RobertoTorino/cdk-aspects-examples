@@ -23,8 +23,8 @@ export class LambdaLogGroupConfig implements IAspect {
   }
 
   private createLambdaLogGroup(lambda: CfnFunction) {
-    console.log(`Lambda functionName: ${lambda.functionName}`);
-    
+    console.log(`Lambda functionName: ${lambda.logicalId}`);
+
     new LogGroup(lambda, `LogGroup`, {
       ...this.#logGroupProps,
       logGroupName: `/aws/lambda/${lambda.ref}`,
