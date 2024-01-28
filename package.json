@@ -19,7 +19,7 @@
     "@types/jest": "^29.5.11",
     "@types/node": "20.11.5",
     "@types/prettier": "2.7.3",
-    "aws-cdk": "2.123.0",
+    "aws-cdk": "2.124.0",
     "esbuild": "0.19.12",
     "npm-check-updates": "16.14.12",
     "package-json": "9.0.0",
@@ -27,7 +27,7 @@
     "typescript": "~5.3.3"
   },
   "dependencies": {
-    "aws-cdk-lib": "2.123.0",
+    "aws-cdk-lib": "2.124.0",
     "cdk-dia": "0.10.0",
     "cdk-nag": "^2.28.18",
     "constructs": "^10.3.0",

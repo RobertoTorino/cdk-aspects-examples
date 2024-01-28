@@ -11,7 +11,7 @@ It is referenced in this blog post: [https://blog.jannikwempe.com/mastering-aws-
 ## Additions:
 
 ### Updated to latest AWS CDK version                
-> **January 2024: `"aws-cdk": "2.122.0"`**      
+> **January 2024: `"aws-cdk": "2.124.0"`**      
 
 **The AWS environment where the deployment will take place depends on the CLI's current credential settings:**
 
@@ -35,14 +35,14 @@ export const env = {
 **Example output:**                    
 ```
 ==================================================================
-=== The latest version of the AWS-CDK package is:  [ 2.122.0 ] ===
-=== You have the latest AWS-CDK version installed: [ 2.122.0 ] ===
+=== The latest version of the AWS-CDK package is:  [ 2.124.0 ] ===
+=== You have the latest AWS-CDK version installed: [ 2.124.0 ] ===
 === Release info: https://github.com/aws/aws-cdk/releases      ===
 ==================================================================
 
 ======================================================================
-=== The latest version of the AWS-CDK-LIB package is:  [ 2.122.0 ] ===
-=== You have the latest AWS-CDK-LIB version installed: [ 2.122.0 ] ===
+=== The latest version of the AWS-CDK-LIB package is:  [ 2.124.0 ] ===
+=== You have the latest AWS-CDK-LIB version installed: [ 2.124.0 ] ===
 === Release info: https://github.com/aws/aws-cdk/releases          ===
 ======================================================================
 ```
