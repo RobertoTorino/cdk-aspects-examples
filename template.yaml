@@ -1,4 +1,4 @@
-Enabling bucket versioning for MyStack/MyBucket/Resource
+# Enabling bucket versioning for MyStack/MyBucket/Resource
 Resources:
   CdkAssertionsQueue916F886A:
     Type: AWS::SQS::Queue

@@ -6,7 +6,6 @@ import {
 } from 'aws-cdk-lib';
 import {Runtime} from 'aws-cdk-lib/aws-lambda';
 import {RetentionDays} from 'aws-cdk-lib/aws-logs';
-import {AwsSolutionsChecks} from 'cdk-nag';
 import 'source-map-support/register';
 import {MyStack} from '../lib/my-stack';
 import {ApplyTags} from '../src/aspects/apply-tags';

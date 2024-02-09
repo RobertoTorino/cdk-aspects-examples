@@ -16,20 +16,23 @@
     "render extended diagram": "npx cdk ls -q && npx cdk-dia --collapse=false && rm -rvf diagram.dot && mv -v diagram.png ./images/extended_diagram.png"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.11",
-    "@types/node": "20.11.5",
+    "@types/jest": "^29.5.12",
+    "@types/node": "20.11.17",
     "@types/prettier": "2.7.3",
-    "aws-cdk": "2.124.0",
-    "esbuild": "0.19.12",
-    "npm-check-updates": "16.14.12",
+    "@types/source-map-support": "^0.5.10",
+    "aws-cdk": "2.126.0",
+    "esbuild": "0.20.0",
+    "jest": "^29.7.0",
+    "npm-check-updates": "16.14.14",
     "package-json": "9.0.0",
+    "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "typescript": "~5.3.3"
   },
   "dependencies": {
-    "aws-cdk-lib": "2.124.0",
+    "aws-cdk-lib": "2.126.0",
     "cdk-dia": "0.10.0",
-    "cdk-nag": "^2.28.18",
+    "cdk-nag": "^2.28.29",
     "constructs": "^10.3.0",
     "source-map-support": "^0.5.21"
   }
