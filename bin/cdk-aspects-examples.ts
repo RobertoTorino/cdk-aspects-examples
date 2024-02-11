@@ -8,6 +8,7 @@ import {Runtime} from 'aws-cdk-lib/aws-lambda';
 import {RetentionDays} from 'aws-cdk-lib/aws-logs';
 import 'source-map-support/register';
 import {MyStack} from '../lib/my-stack';
+import { addAspects } from '../src/add-aspects/add-aspects';
 import {ApplyTags} from '../src/aspects/apply-tags';
 import {Buckets} from '../src/aspects/enable-bucket-versioning';
 import {EnforceMinimumLambdaNodeRuntimeVersion} from '../src/aspects/enforce-minimum-lambda-node-runtime-version';
@@ -45,6 +46,7 @@ export const myStack = new MyStack(app, 'MyStack', {
     env,
 });
 Aspects.of(myStack).add(new Securitygroups());
+addAspects(myStack);
 
 const appAspects = Aspects.of(app);
 

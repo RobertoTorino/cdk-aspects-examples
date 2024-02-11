@@ -10,8 +10,13 @@ It is referenced in this blog post: [https://blog.jannikwempe.com/mastering-aws-
 
 ## Additions:
 
+### Check out the 'add-aspects' folder, I put some new examples there
+- **Logic with using an addAspects function.**
+- **Using aspects to rename a launchTemplate name.**
+- **Some examples of more checks.**
+
 ### Updated to latest AWS CDK version                
-> **January 2024: `"aws-cdk": "2.124.0"`**      
+> **`"aws-cdk": "2.127.0"`**      
 
 **The AWS environment where the deployment will take place depends on the CLI's current credential settings:**
 
@@ -34,17 +39,76 @@ export const env = {
 
 **Example output:**                    
 ```
+
 ==================================================================
-=== The latest version of the AWS-CDK package is:  [ 2.124.0 ] ===
-=== You have the latest AWS-CDK version installed: [ 2.124.0 ] ===
+=== The latest version of the AWS-CDK package is:  [ 2.127.0 ] ===
+=== You have the latest AWS-CDK version installed: [ 2.127.0 ] ===
 === Release info: https://github.com/aws/aws-cdk/releases      ===
 ==================================================================
-
 ======================================================================
-=== The latest version of the AWS-CDK-LIB package is:  [ 2.124.0 ] ===
-=== You have the latest AWS-CDK-LIB version installed: [ 2.124.0 ] ===
+=== The latest version of the AWS-CDK-LIB package is:  [ 2.127.0 ] ===
+=== You have the latest AWS-CDK-LIB version installed: [ 2.127.0 ] ===
 === Release info: https://github.com/aws/aws-cdk/releases          ===
 ======================================================================
+Adding log group for Lambda function MyStack/MyLambda1/Resource
+Lambda functionName: ${Token[MyStack.MyLambda1.Resource.LogicalID.90]}
+Adding log group for Lambda function MyStack/MyLambda2/Resource
+Lambda functionName: ${Token[MyStack.MyLambda2.Resource.LogicalID.123]}
+[Warning at /MyStack/MyBucket/Resource] 
+[The MyBucketF68F3FF0-bucket is NOT secure!]
+[For now, we apply BlockPublicAccess.BLOCK_ALL to your (MyBucketF68F3FF0-bucket) automatic.]
+==============================================================================================
+
+[Info at /MyStack/MyBucket/Resource] 
+                     The (MyBucketF68F3FF0-bucket) has NO versioning enabled.
+                     If you use lifecycle rules with the expiration action
+                     set, it will result in Amazon S3 permanently removing the object.
+                     To prevent this, versioned has to be set to 'true'.
+                     -----------------------------------------------------------------
+                     Example:  |  versioned: true,                                 |
+                               |  lifecycleRules: [{                               |
+                               |  enabled: true,                                   |
+                               |  id: 'BucketLifeCycleRules',                   |
+                               |  noncurrentVersionExpiration: Duration.days(365), |
+                               |  },                                               |
+                               |  {                                                |
+                               |  noncurrentVersionTransitions: [{                 |
+                               |  storageClass: StorageClass.INFREQUENT_ACCESS,    |
+                               |  transitionAfter: Duration.days(30),              |
+                               |  },                                               |
+                               |  {                                                |
+                               |  storageClass: StorageClass.GLACIER,              |
+                               |  transitionAfter: Duration.days(60),              |
+                               |  }                                                |
+                               |  ]                                                |
+                               |  }]                                               |
+                     -----------------------------------------------------------------
+                    
+[Warning at /MyStack/MyBucket/Policy/Resource] [object Object]
+[Warning at /MyStack/MyLambda1/Resource] The MyStack/MyLambda1/Resource has no runtime config!]
+[Warning at /MyStack/MyLambda1/Resource] The MyLambda1AAFB4554 Lambda Function runtime is updated to nodejs20.x!]
+===================================================================================================================
+      
+[Warning at /MyStack/MyLambda1/Resource/LogGroup/Resource] 
+                    Unexpected deletion policy set.
+                    We expect that deletion/removal policy to be set to RemovalPolicy.DESTROY
+                    -----------------------------------------------------------------
+                     Example: |  removalPolicy: RemovalPolicy.DESTROY |
+                    -----------------------------------------------------------------
+                    We're adding it automatically now to your log group.
+                    
+[Warning at /MyStack/MyLambda2/Resource] The MyStack/MyLambda2/Resource has no runtime config!]
+[Warning at /MyStack/MyLambda2/Resource] The MyLambda2254B54D5 Lambda Function runtime is updated to nodejs20.x!]
+===================================================================================================================
+      
+[Warning at /MyStack/MyLambda2/Resource/LogGroup/Resource] 
+                    Unexpected deletion policy set.
+                    We expect that deletion/removal policy to be set to RemovalPolicy.DESTROY
+                    -----------------------------------------------------------------
+                     Example: |  removalPolicy: RemovalPolicy.DESTROY |
+                    -----------------------------------------------------------------
+                    We're adding it automatically now to your log group.
+
 ```
 
 ### Added more examples of using AWS CDK Aspects in the Bucket stack                
