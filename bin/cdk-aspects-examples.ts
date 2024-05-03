@@ -1,25 +1,22 @@
 #!/usr/bin/env node
-import {
-    App,
-    Aspects,
-    DefaultStackSynthesizer,
-} from 'aws-cdk-lib';
-import {Runtime} from 'aws-cdk-lib/aws-lambda';
-import {RetentionDays} from 'aws-cdk-lib/aws-logs';
+import { App, Aspects, DefaultStackSynthesizer, } from 'aws-cdk-lib';
+import { Runtime } from 'aws-cdk-lib/aws-lambda';
+import { RetentionDays } from 'aws-cdk-lib/aws-logs';
 import 'source-map-support/register';
-import {MyStack} from '../lib/my-stack';
+import { AwsSolutionsChecks } from 'cdk-nag';
+import { MyStack } from '../lib/my-stack';
 import { addAspects } from '../src/add-aspects/add-aspects';
-import {ApplyTags} from '../src/aspects/apply-tags';
-import {Buckets} from '../src/aspects/enable-bucket-versioning';
-import {EnforceMinimumLambdaNodeRuntimeVersion} from '../src/aspects/enforce-minimum-lambda-node-runtime-version';
-import {LambdaLogGroupConfig} from '../src/aspects/lambda-log-group-config';
-import {AuCoreCdkVersionCheckStack} from "../version-checks/cdk-check";
-import {AuCoreCdkLibVersionCheckStack} from "../version-checks/lib-check";
-import {Securitygroups} from "../src/aspects/securitygroups";
+import { ApplyTags } from '../src/aspects/apply-tags';
+import { Buckets } from '../src/aspects/enable-bucket-versioning';
+import { EnforceMinimumLambdaNodeRuntimeVersion } from '../src/aspects/enforce-minimum-lambda-node-runtime-version';
+import { LambdaLogGroupConfig } from '../src/aspects/lambda-log-group-config';
+import { Securitygroups } from '../src/aspects/securitygroups';
+import { AuCoreCdkVersionCheckStack } from '../version-checks/cdk-check';
+import { AuCoreCdkLibVersionCheckStack } from '../version-checks/lib-check';
 
 const app = new App();
 
-export function makeUnique() {
+export function makeUnique () {
     let text = '';
     const rangeChoice = 'abcdefghijklmnopqrstuvwxyz';
     for (let i = 0; i < 5; i++) text += rangeChoice.charAt(Math.floor(Math.random() * rangeChoice.length));
@@ -93,7 +90,7 @@ appAspects.add(new Buckets());
 // https://github.com/aws/aws-cdk/blob/f834a4537643b32131076111be0693c6f8f96b24/packages/@aws-cdk/aws-redshift/test/integ.cluster-elasticip.ts#L10-L16
 
 // 2) Throw errors
-appAspects.add(new EnforceMinimumLambdaNodeRuntimeVersion(Runtime.NODEJS_18_X));
+appAspects.add(new EnforceMinimumLambdaNodeRuntimeVersion(Runtime.NODEJS_20_X));
 
 // cdk-nag un-comment for checks
 // appAspects.add(new AwsSolutionsChecks());

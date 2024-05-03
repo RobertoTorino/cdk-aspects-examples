@@ -8,27 +8,25 @@
     "build": "tsc",
     "watch": "tsc -w",
     "cdk": "cdk",
-    "check packages": "npm-check-updates -u",
-    "purge cdk.out": "rm -rvf cdk.out",
     "purge modules": "rm -rvf node_modules",
     "purge lockfile": "rm package-lock.json",
-    "purge cache": "npm cache clean -f"
+    "purge cdk.out": "rm -rvf cdk.out",
+    "purge cache": "npm cache clean -f",
+    "diagram small": "npm i cdk-dia && cdk synth -q && npx cdk-dia && rm -rf diagram.dot && mv -f diagram.png ./images/diagram_small.png && npm r cdk-dia"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "@types/node": "20.11.17",
-    "aws-cdk": "2.127.0",
+    "aws-cdk": "2.140.0",
     "jest": "^29.7.0",
-    "npm-check-updates": "16.14.15",
     "package-json": "9.0.0",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
-    "typescript": "~5.3.3"
+    "typescript": "~5.4.5"
   },
   "dependencies": {
-    "aws-cdk-lib": "2.127.0",
-    "cdk-nag": "^2.28.31",
-    "constructs": "^10.3.0",
-    "source-map-support": "^0.5.21"
+    "aws-cdk-lib": "2.140.0",
+    "cdk-nag": "2.28.107",
+    "constructs": "^10.3.0"
   }
 }

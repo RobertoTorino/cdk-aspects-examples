@@ -55,11 +55,11 @@ export class Buckets implements IAspect {
           'A-Z',
           'a-z',
         ]) {
-          node.tags.setTag('stage', 'dev', 100, true);
+          node.tags.setTag('Stage', 'dev', 100, true);
           node.tags.setTag('Application', application, 100, true);
         }
         // eslint-disable-next-line no-sequences
-        return node.tags.setTag('stage', 'dev'),
+        return node.tags.setTag('Stage', 'dev'),
             node.tags.setTag('Application', application);
       }
 
