@@ -21,12 +21,10 @@ export class EnforceMinimumLambdaNodeRuntimeVersion implements IAspect {
       }
       Annotations.of(node).addWarning(`The ${node.node.path} has no runtime config!]`);
 
-      // eslint-disable-next-line no-param-reassign
       node.runtime = 'nodejs20.x';
       const nodeRuntime = 'nodejs20.x';
 
       const actualNodeJsRuntimeVersion = this.parseNodeRuntimeVersion(node.runtime);
-      // const minimumNodeJsRuntimeVersion = this.parseNodeRuntimeVersion(this.#minimumNodeRuntimeVersion.name);
       const minimumNodeJsRuntimeVersion = this.parseNodeRuntimeVersion(this.#minimumNodeRuntimeVersion.name);
 
       if (actualNodeJsRuntimeVersion < minimumNodeJsRuntimeVersion) {
@@ -35,13 +33,11 @@ export class EnforceMinimumLambdaNodeRuntimeVersion implements IAspect {
         node.addOverride('runtime', nodeRuntime);
       }
 
-      Annotations.of(node).addWarning(`The ${functionId} Lambda Function runtime is updated to ${nodeRuntime}!]
-===================================================================================================================
+      Annotations.of(node).addInfo(`The ${functionId} Lambda Function runtime is updated to ${nodeRuntime}!]
       `);
     }
   }
 
-  // eslint-disable-next-line class-methods-use-this
   private parseNodeRuntimeVersion(runtimeName: string): number {
     const runtimeVersion = runtimeName.replace('nodejs', '').split('.')[0];
     return +runtimeVersion;

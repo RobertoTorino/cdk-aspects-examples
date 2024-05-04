@@ -31,11 +31,8 @@ export const env = {
 };
 
 export const myStack = new MyStack(app, 'MyStack', {
-    terminationProtection: false,
-    analyticsReporting: true,
     synthesizer: new DefaultStackSynthesizer({
         generateBootstrapVersionRule: false,
-        // Name of the S3 bucket for file assets
         bucketPrefix: makeUnique(),
     }),
     stackName: 'CdkAspectsExampleStack',
@@ -79,23 +76,19 @@ const cdkLibVersionCheck = new AuCoreCdkLibVersionCheckStack(
 );
 Aspects.of(cdkLibVersionCheck).add(new Buckets());
 
-// 1) Apply changes
 appAspects.add(new ApplyTags({
     stage: 'dev',
     project: 'CDK-Aspects',
-    owner: 'Dev-Team'
+    owner: 'DevTeam'
 }));
 
 appAspects.add(new Buckets());
-// https://github.com/aws/aws-cdk/blob/f834a4537643b32131076111be0693c6f8f96b24/packages/@aws-cdk/aws-redshift/test/integ.cluster-elasticip.ts#L10-L16
 
-// 2) Throw errors
 appAspects.add(new EnforceMinimumLambdaNodeRuntimeVersion(Runtime.NODEJS_20_X));
 
 // cdk-nag un-comment for checks
 // appAspects.add(new AwsSolutionsChecks());
 
-// 4) Add resources
 appAspects.add(new LambdaLogGroupConfig({
     retention: RetentionDays.ONE_DAY
 }));

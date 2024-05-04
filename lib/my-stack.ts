@@ -35,16 +35,16 @@ export class MyStack extends cdk.Stack {
 
         const myLambda1 = new NodejsFunction(this, 'MyLambda1', {
             entry: path.join(__dirname, 'lambda', 'index.ts'),
-            runtime: Runtime.NODEJS_16_X,
+            handler: 'index.handler',
+            runtime: Runtime.NODEJS_18_X,
             logGroup: this.logGroup,
-            // Make EnforceMinimumLambdaNodeRuntimeVersion fail:
-            // runtime: Runtime.NODEJS_12_X
         });
         myLambda1.addEventSource(new SqsEventSource(queue));
 
         new NodejsFunction(this, 'MyLambda2', {
             entry: path.join(__dirname, 'lambda', 'index.ts'),
-            runtime: Runtime.NODEJS_16_X,
+            handler: 'index.handler',
+            runtime: Runtime.NODEJS_18_X,
             logGroup: this.logGroup,
         });
     }

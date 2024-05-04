@@ -14,12 +14,12 @@ export class EbsPropertyChecks implements IAspect {
                     const ebs = ( blockDeviceMapping as CfnInstance.BlockDeviceMappingProperty ).ebs as EbsProperty;
                     if (!ebs.encrypted) {
                         Annotations.of(node).addWarning(`
-                     The (${node.instance.logicalId}-Volume) has NO encryption enabled!
-                     You have to enable encryption on the Volume!
-                     -----------------------------------------------------------------
-                     Example:     | encryption: true   |
-                     -----------------------------------------------------------------
-                     `);
+The (${node.instance.logicalId}-Volume) has NO encryption enabled!
+You have to enable encryption on the Volume!
+-----------------------------------------------------------------
+Example:     | encryption: true   |
+-----------------------------------------------------------------
+`);
                     }
                 });
             }

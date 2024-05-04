@@ -1,5 +1,5 @@
 Object.defineProperty(exports, '__esModule', { value: true });
-// eslint-disable-next-line no-multi-assign,max-len,no-void
+
 exports.prefix = exports.data = exports.print = exports.highlight = exports.success = exports.warning = exports.error = exports.debug = exports.trace = exports.increaseVerbosity = exports.setCI = exports.setLogLevel = exports.CI = exports.logLevel = exports.LogLevel = void 0;
 const util = require('util');
 const chalk = require('chalk');
@@ -17,17 +17,8 @@ const logger = (stream: ( NodeJS.WriteStream & { fd: 2; } ) | ( NodeJS.WriteStre
     realStream.write(`${str}\n`);
 };
 
-// let LogLevel: { DEFAULT: any; TRACE: number; DEBUG: number; };
-// (function (LogLevel) {
-//     LogLevel[LogLevel['DEFAULT'] = 0] = 'DEFAULT';
-//     LogLevel[LogLevel['DEBUG'] = 1] = 'DEBUG';
-//     LogLevel[LogLevel['TRACE'] = 2] = 'TRACE';
-// })(LogLevel = exports.LogLevel || (exports.LogLevel = {}));
-// exports.logLevel = LogLevel.DEFAULT;
-// exports.CI = false;
-
 let LogLevel: { DEFAULT: any; TRACE: number; DEBUG: number; };
-// eslint-disable-next-line no-unused-vars
+
 ( function logLevelValue (_p: {}) {
     exports.LogLevel.DEFAULT = 'DEFAULT';
     exports.LogLevel.DEBUG = 'DEBUG';
@@ -54,7 +45,6 @@ function increaseVerbosity () {
 
 exports.increaseVerbosity = increaseVerbosity;
 const stream = () => ( exports.CI ? stdout : stderr );
-// eslint-disable-next-line no-underscore-dangle
 const _debug = logger(stream(), [ chalk.gray ]);
 exports.trace = (fmt: any, ...args: any) => exports.logLevel >= LogLevel.TRACE && _debug(fmt, ...args);
 exports.debug = (fmt: any, ...args: any) => exports.logLevel >= LogLevel.DEBUG && _debug(fmt, ...args);

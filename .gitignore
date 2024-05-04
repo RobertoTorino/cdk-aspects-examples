@@ -4,6 +4,7 @@
 *.d.ts
 node_modules
 !.eslintrc.js
+package-lock.json
 
 # CDK Typescript default
 !*.d.ts

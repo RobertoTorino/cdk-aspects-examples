@@ -12,7 +12,7 @@
     "purge lockfile": "rm package-lock.json",
     "purge cdk.out": "rm -rvf cdk.out",
     "purge cache": "npm cache clean -f",
-    "diagram small": "npm i cdk-dia && cdk synth -q && npx cdk-dia && rm -rf diagram.dot && mv -f diagram.png ./images/diagram_small.png && npm r cdk-dia"
+    "diagram": "npm i cdk-dia && cdk synth -q && npx cdk-dia && rm -rf diagram.dot && mv -f diagram.png ./images/diagram_small.png && npm r cdk-dia"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
